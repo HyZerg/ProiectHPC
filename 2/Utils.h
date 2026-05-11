@@ -15,6 +15,18 @@
 	#include <windows.h>
 #else
 	#include <unistd.h>
+
+	void strcpy_s(char* Dest, size_t Size, char* Content)
+	{
+		strcpy(Dest, Content);
+	}
+	void fopen_s(FILE** Handle, const char* FileName, const char* Specs)
+	{
+		*Handle = fopen(FileName, Specs);
+	}
+
+	#define max(a,b) (((a) > (b)) ? (a) : (b))
+	#define min(a,b) (((a) < (b)) ? (a) : (b))
 #endif
 
 // Time utils
